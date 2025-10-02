@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trà My ❤ Love You</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 60px;
+      margin-top: 30px;
+      color: #ff004f;
+      text-shadow: 0 0 10px #ff004f, 0 0 20px #ff004f, 0 0 40px #ff004f;
+    }
+    h2 {
+      font-size: 25px;
+      letter-spacing: 5px;
+      color: white;
+      text-shadow: 0 0 10px #ff004f;
+    }
+    .heart-frame {
+      position: relative;
+      display: inline-block;
+      margin-top: 30px;
+    }
+    .heart-frame img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      clip-path: path("M 150 280 Q 0 150 150 30 Q 300 150 150 280 Z");
+      border: 5px solid #ff4da6;
+      box-shadow: 0 0 30px #ff4da6, 0 0 60px #ff1a75;
+    }
+    .falling-heart {
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      color: #ff4da6;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>TRÀ MY</h1>
+  <h2>LOVE ❤ YOU</h2>
+
+  <div class="heart-frame">
+    <img src="tmy.jpg" alt="Trà My">
+  </div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("falling-heart");
+      heart.innerHTML = "❤";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
